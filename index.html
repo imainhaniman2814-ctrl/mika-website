@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akiem's World ☁️✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --text-dark: #3d3a4e;
+            --pastel-pink: #ffd6a5;
+            --pastel-purple: #ffc6ff;
+            --pastel-blue: #bdb2ff;
+            --pastel-mint: #9bf6ff;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: radial-gradient(circle at 20% 20%, #ffe5ec, transparent 40%),
+                        radial-gradient(circle at 80% 40%, #e8dbfc, transparent 40%),
+                        radial-gradient(circle at 40% 80%, #e0fff4, transparent 50%),
+                        radial-gradient(circle at 70% 80%, #e7f3ff, transparent 40%),
+                        #fbf8cc;
+            background-size: 200% 200%;
+            animation: meshMove 20s ease infinite;
+            text-align: center;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-bottom: 40px;
+        }
+
+        @keyframes meshMove {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        header {
+            padding: 80px 20px 40px 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 46px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, #ff70a6, #70d6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 2px 10px rgba(255,255,255,0.5));
+            margin-bottom: 10px;
+        }
+
+        header p {
+            margin-top: 12px;
+            font-weight: 500;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        marquee {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            width: 85%;
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 10px 20px;
+            color: var(--text-dark);
+            font-weight: 700;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 10px;
+            position: sticky;
+            top: 20px;
+            width: 90%;
+            max-width: 750px;
+            margin: 20px auto;
+            border-radius: 100px;
+            z-index: 999;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(155, 160, 240, 0.1);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            padding: 10px 18px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        nav a:hover {
+            background: #ffffff;
+            color: #70d6ff;
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        section {
+            width: 85%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 35px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03), 
+                        inset 0 0 20px rgba(255,255,255,0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(155, 160, 240, 0.15);
+        }
+
+        h2 {
+            color: #4a4e69;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .profile {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 6px solid white;
+            box-shadow: 0 15px 30px rgba(255, 198, 255, 0.5);
+            animation: blobby 6s ease-in-out infinite;
+            transition: all 0.5s ease;
+            margin-bottom: 20px;
+        }
+
+        @keyframes blobby {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        .profile:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-collapse: separate;
+            border-spacing: 0 12px;
+        }
+
+        th { display: none; }
+
+        td {
+            background: rgba(255,255,255,0.5);
+            padding: 16px 24px;
+            font-size: 1.05rem;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        tr td:first-child {
+            border-radius: 20px 0 0 20px;
+            font-weight: 700;
+            color: #6d597a;
+            width: 35%;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        tr td:last-child {
+            border-radius: 0 20px 20px 0;
+            text-align: left;
+        }
+
+        .edu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .edu-item {
+            background: rgba(255,255,255,0.6);
+            padding: 20px;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+
+        .edu-item:hover {
+            background: #ffffff;
+            padding-left: 25px;
+        }
+
+        .edu-icon { font-size: 2rem; }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .song-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 100px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .song-btn:hover {
+            background: var(--text-dark);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Seksyen Contact yang dikemaskan layoutnya */
+        #contact {
+            width: 85%; 
+            max-width: 950px; 
+            margin: 50px auto; 
+            padding: 45px 40px; 
+            display: flex; 
+            flex-direction: row; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 50px; 
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            #contact {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .contact-info, .contact-form-container {
+                max-width: 100% !important;
+                width: 100%;
+            }
+            .info-list li {
+                justify-content: center;
+            }
+            .desc {
+                text-align: center !important;
+            }
+        }
+
+        .info-list {
+            list-style: none; 
+            padding: 0; 
+            margin: 0;
+        }
+
+        .info-list li {
+            font-size: 1rem; 
+            font-weight: 500; 
+            color: #3d3a4e; 
+            margin-bottom: 12px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+        }
+
+        .info-list a {
+            text-decoration: none; 
+            color: inherit;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            width: 85%;
+            max-width: 800px;
+            margin: 60px auto 20px auto;
+            padding: 30px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        #datetime {
+            background: #ffffff;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 15px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        #visitorCount {
+            background: var(--text-dark);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-weight: 700;
+        }
+
+        /* STYLE POPUP MODAL GALLERY */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(61, 58, 78, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 24px;
+            border: 5px solid #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        #modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            color: #3d3a4e;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 15px;
+            margin-top: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0,0,0,0.3);
+            width: 50px;
+            height: 50px;
+            line-height: 45px;
+            border-radius: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>﷽</h1>
+        <h1>Akiem's World ✨</h1>
+        <p>Welcome to my dynamic lovely world.</p>
+    </header>
+
+    <marquee>
+        ✦ Hello! Thanks for stopping by. Grab a coffee and look around! ✦
+    </marquee>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#biodata">Biodata</a>
+        <a href="#education">Education</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#song">Song</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About Me -->
+    <section id="about">
+        <h2>✨ About Me</h2>
+        <img src="B0425A8E-FEFE-4E30-8925-A4A56C7CE8BB_1_105_c.jpeg" class="profile" alt="My Photo">
+        <p>
+            Hello everyone! My name is <span style="color: #ff70a6; font-weight: 700;">Iman Hakim</span> (you can call me <strong>Akiem</strong>). I am currently pursuing a Diploma in Information Management. I have a deep passion for listening to music, exploring local coffee spots, travelling, photography, and capturing beautiful fleeting memories. ☁️
+        </p>
+    </section>
+
+    <!-- Biodata -->
+    <section id="biodata">
+        <h2>📝 My Biodata</h2>
+        <table>
+            <tbody>
+                <tr><td>Name</td><td>Muhammad Iman Hakim</td></tr>
+                <tr><td>Age</td><td>21 Years Old</td></tr>
+                <tr><td>Birthday</td><td>28th February 2005</td></tr>
+                <tr><td>Course</td><td>Diploma in Information Management</td></tr>
+                <tr><td>University</td><td>UiTM Rembau</td></tr>
+                <tr><td>Hobby</td><td>Music, Coffee, Photography & Travelling</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <h2>🎓 Education</h2>
+        <div class="edu-grid">
+            
+            <!-- Sekolah 1: SK Bertam Perdana -->
+            <a href="https://www.facebook.com/skbertamperdana/" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="edu-item">
+                    <div class="edu-icon">🏫</div>
+                    <div>
+                        <h3 style="font-size:1.1rem;">SK Bertam Perdana</h3>
+                        <p style="font-size:0.95rem; opacity:0.7;">Primary Education</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Sekolah 2: SMK Dato' Kailan -->
+            <a href="https://sites.google.com/view/smkdato-kailan/" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="edu-item">
+                    <div class="edu-icon">🏫</div>
+                    <div>
+                        <h3 style="font-size:1.1rem;">SMK Dato' Kailan</h3>
+                        <p style="font-size:0.95rem; opacity:0.7;">Secondary Education (Science Stream)</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Universiti 3: UiTM -->
+            <a href="https://www.uitm.edu.my" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="edu-item">
+                    <div class="edu-icon">🎓</div>
+                    <div>
+                        <h3 style="font-size:1.1rem; color: #ff70a6;">UiTM</h3>
+                        <p style="font-size:0.95rem; opacity:0.7;">Diploma in Information Management (Current)</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+        <h2>📸 My Gallery</h2>
+        <div class="gallery">
+            <img src="IMG_2843.MOV" alt="Video 1" data-desc="Umrah's journey 🕋">
+            <img src="IMG_2849.MOV" alt="Photo 2" data-desc="Solat kat Hijr Ismail ✨">
+            <img src="IMG_2847.jpeg" alt="Photo 3" data-desc="Best view ever 💕">
+            <img src="265FB139-64E3-4EB1-B31A-26D68D8D8EFF.jpeg" alt="Photo 4" data-desc="Family Rembau yang masuk air. Tapi aku sayang dorang 🫶🏻">
+            <img src="703C8966-F94C-4E89-AF63-916A764F4804_1_105_c.jpeg" alt="Photo 5" data-desc="Penang's bestie. Dari tadika sampai harini 🙈">
+            <img src="B95A90E8-01F9-4D87-96A2-72C6D38A71DE_3994FCB9-D654-49B2-9870-C246BD7319C8.jpeg" alt="Photo 6" data-desc="Unplanning breakfast 💁🏻">
+            <img src="37. 'Izzah 10321.jpeg" alt="Photo 7" data-desc="Cucu KakMah & AyahEnal 🐣">
+            <img src="37. 'Izzah 10165.jpeg" alt="Photo 8" data-desc="Lovely family 🥰">
+        </div>
+    </section>
+
+    <!-- Favourite Song -->
+    <section id="song">
+        <h2>🎵 Favorite Track</h2>
+        <a href="https://www.youtube.com/watch?v=l08Zw-RY__Q" target="_blank" class="song-btn">
+            <span>🎧 Play on YouTube</span>
+        </a>
+        <br>
+        <a href="https://www.youtube.com/watch?v=l08Zw-RY__Q" target="_blank">
+            <img src="https://img.youtube.com/vi/l08Zw-RY__Q/hqdefault.jpg" 
+                 alt="My Favourite Song Thumbnail" 
+                 style="border-radius:28px; width:100%; max-width:520px; height:auto; cursor:pointer; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border: 5px solid #fff;">
+        </a>
+    </section>
+
+    <!-- Contact Section -->
+   <section id="contact" style="
+        width: 85%; 
+        max-width: 950px; 
+        margin: 50px auto; 
+        padding: 45px 40px; 
+        background: var(--glass-bg); 
+        backdrop-filter: blur(25px); 
+        -webkit-backdrop-filter: blur(25px); 
+        border-radius: 35px; 
+        border: 1px solid var(--glass-border); 
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03), inset 0 0 20px rgba(255,255,255,0.4);
+        display: flex; 
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center; 
+        gap: 50px; 
+        text-align: left;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    " onmouseover="this.style.transform='translateY(-8px)', this.style.boxShadow='0 20px 40px rgba(155, 160, 240, 0.15)'" onmouseout="this.style.transform='translateY(0)', this.style.boxShadow='0 15px 35px rgba(0, 0, 0, 0.03)'">
+        
+        <div class="contact-info" style="flex: 1; max-width: 400px;">
+            <div class="say-hi" style="font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; color: #e5989b; text-transform: uppercase; margin-bottom: 5px;">
+                🌙 Contact Me
+            </div>
+            
+            <h2 style="font-size: 2.8rem; font-weight: 700; color: #3d3a4e; margin-bottom: 15px; line-height: 1.1; letter-spacing: -1px; background: none; -webkit-text-fill-color: initial;">
+                LET'S <span style="color: #ffb5a7;">CONNECT</span>
+            </h2>
+            
+            <p class="desc" style="font-size: 1rem; line-height: 1.6; color: #6d6875; margin-bottom: 25px; text-align: left;">
+                Got something cool to share, up for a coffee run, or just want to vibe and chat? Hit me up in the DMs or drop a message in the form below. Let’s connect! ✨
+            </p>
+            
+            <ul class="info-list" style="list-style: none; padding: 0; margin: 0;">
+                <li style="font-size: 1rem; font-weight: 500; color: #3d3a4e; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                    ✉️ <a href="mailto:imainhaniman2814@gmail.com?subject=Hi Akiem!" style="text-decoration: none; color: inherit;">imainhaniman2814@gmail.com</a>
+                </li>
+                <li style="font-size: 1rem; font-weight: 500; color: #3d3a4e; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                    📞 <a href="tel:0175851579" style="text-decoration: none; color: inherit;">017-5851579</a>
+                </li>
+                <li style="font-size: 1rem; font-weight: 500; color: #3d3a4e; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                    📍 Penang, Malaysia
+                </li>
+                <li style="font-size: 1rem; font-weight: 500; color: #3d3a4e; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                    📸 <a href="https://instagram.com/mikaaaaboooooo" target="_blank" style="text-decoration: none; color: inherit;">@mikaaaaboooooo</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="contact-form-container" style="flex: 1.2; max-width: 450px; width: 100%;">
+            <form class="contact-form" action="#" method="POST" onsubmit="alert('Vibe sent! ✨'); return false;" style="display: flex; flex-direction: column; gap: 12px;">
+                
+                <div class="form-group">
+                    <input type="text" placeholder="Name" required style="
+                        width: 100%; padding: 15px 20px; border-radius: 18px; 
+                        border: 1px solid rgba(255, 255, 255, 0.7); background: rgba(255, 255, 255, 0.5); 
+                        font-family: 'Quicksand', sans-serif; font-size: 0.95rem; color: #3d3a4e; outline: none;
+                    " onfocus="this.style.background='#ffffff', this.style.borderColor='#ffb5a7'" onblur="this.style.background='rgba(255, 255, 255, 0.5)', this.style.borderColor='rgba(255, 255, 255, 0.7)'">
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required style="
+                        width: 100%; padding: 15px 20px; border-radius: 18px; 
+                        border: 1px solid rgba(255, 255, 255, 0.7); background: rgba(255, 255, 255, 0.5); 
+                        font-family: 'Quicksand', sans-serif; font-size: 0.95rem; color: #3d3a4e; outline: none;
+                    " onfocus="this.style.background='#ffffff', this.style.borderColor='#ffb5a7'" onblur="this.style.background='rgba(255, 255, 255, 0.5)', this.style.borderColor='rgba(255, 255, 255, 0.7)'">
+                </div>
+
+                <div class="form-group">
+                    <select required style="
+                        width: 100%; padding: 15px 20px; border-radius: 18px; 
+                        border: 1px solid rgba(255, 255, 255, 0.7); background: rgba(255, 255, 255, 0.5); 
+                        font-family: 'Quicksand', sans-serif; font-size: 0.95rem; color: #3d3a4e; outline: none;
+                        cursor: pointer; appearance: none; -webkit-appearance: none;
+                    " onfocus="this.style.background='#ffffff', this.style.borderColor='#ffb5a7'" onblur="this.style.background='rgba(255, 255, 255, 0.5)', this.style.borderColor='rgba(255, 255, 255, 0.7)'">
+                        <option value="" disabled selected style="color: #3d3a4e;">Choose your state</option>
+                        <option value="Johor">Johor</option>
+                        <option value="Kedah">Kedah</option>
+                        <option value="Kelantan">Kelantan</option>
+                        <option value="Melaka">Melaka</option>
+                        <option value="Negeri Sembilan">Negeri Sembilan</option>
+                        <option value="Pahang">Pahang</option>
+                        <option value="Perak">Perak</option>
+                        <option value="Perlis">Perlis</option>
+                        <option value="Pulau Pinang">Pulau Pinang</option>
+                        <option value="Sabah">Sabah</option>
+                        <option value="Sarawak">Sarawak</option>
+                        <option value="Selangor">Selangor</option>
+                        <option value="Terengganu">Terengganu</option>
+                        <option value="Wilayah Persekutuan">Wilayah Persekutuan (Kuala Lumpur)</option>
+                        <option value="Wilayah Persekutuan">Wilayah Persekutuan (Putrajaya)</option>
+                        <option value="Wilayah Persekutuan">Wilayah Persekutuan (Labuan)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" placeholder="Subject" style="
+                        width: 100%; padding: 15px 20px; border-radius: 18px; 
+                        border: 1px solid rgba(255, 255, 255, 0.7); background: rgba(255, 255, 255, 0.5); 
+                        font-family: 'Quicksand', sans-serif; font-size: 0.95rem; color: #3d3a4e; outline: none;
+                    " onfocus="this.style.background='#ffffff', this.style.borderColor='#ffb5a7'" onblur="this.style.background='rgba(255, 255, 255, 0.5)', this.style.borderColor='rgba(255, 255, 255, 0.7)'">
+                </div>
+                
+                <div class="form-group">
+                    <textarea placeholder="Tell me what you're thinking" style="
+                        width: 100%; height: 100px; padding: 15px 20px; border-radius: 18px; 
+                        border: 1px solid rgba(255, 255, 255, 0.7); background: rgba(255, 255, 255, 0.5); 
+                        font-family: 'Quicksand', sans-serif; font-size: 0.95rem; color: #3d3a4e; outline: none; resize: none;
+                    " onfocus="this.style.background='#ffffff', this.style.borderColor='#ffb5a7'" onblur="this.style.background='rgba(255, 255, 255, 0.5)', this.style.borderColor='rgba(255, 255, 255, 0.7)'"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" style="
+                    width: 100%; padding: 15px; border-radius: 50px; border: none; 
+                    background: #ffb5a7; color: white; font-family: 'Quicksand', sans-serif; 
+                    font-size: 1.05rem; font-weight: 700; cursor: pointer; display: flex; 
+                    align-items: center; justify-content: center; gap: 10px; 
+                    box-shadow: 0 5px 15px rgba(255, 181, 167, 0.3); transition: all 0.3s ease;
+                " onmouseover="this.style.background='#fbc4ab', this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#ffb5a7', this.style.transform='translateY(0)'">
+                    <span>🚀 Send it</span>
+                </button>
+                
+            </form>
+        </div>
+
+    </section>
+
+    <!-- Modal Popup Box -->
+    <div id="myModal" class="modal">
+        <span class="close-modal" id="closeBox">&times;</span>
+        <img class="modal-content" id="imgPopup" alt="Popup Image">
+        <div id="modal-caption"></div>
+    </div>
+
+    <footer>
+        <p>© 2026 Akiem's World | Handcrafted by Mikaaabooo 🤍</p>
+        <div id="datetime">📅 Loading Live Matrix...</div>
+        <p style="font-size:13px; opacity:0.8;">
+            Unique Visitors: <span id="visitorCount">1</span>
+        </p>
+    </footer>
+
+    <script>
+        /* LIVE DATE & TIME */
+        function updateDateTime(){
+            const now = new Date();
+            document.getElementById("datetime").innerHTML = " " + now.toLocaleDateString() + " |  " + now.toLocaleTimeString();
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        /* MODERN UNIQUE VISITOR COUNTER */
+        let uniqueVisit = localStorage.getItem("akiems_unique_user");
+        let savedCount = localStorage.getItem("total_vibe_count");
+        let currentCount = savedCount ? parseInt(savedCount) : 1; 
+
+        if (!uniqueVisit) {
+            currentCount = currentCount + 1;
+            localStorage.setItem("total_vibe_count", currentCount);
+            localStorage.setItem("akiems_unique_user", "true");
+        }
+        document.getElementById("visitorCount").innerHTML = currentCount;
+
+        /* MODAL POPUP GALLERY FUNCTION */
+        const modalBox = document.getElementById("myModal");
+        const modalImg = document.getElementById("imgPopup");
+        const captionText = document.getElementById("modal-caption");
+        const closeBtn = document.getElementById("closeBox");
+
+        // popup gambar
+        document.querySelectorAll('.gallery img').forEach(img => {
+            img.onclick = function() {
+                modalBox.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.getAttribute("data-desc") || "✨ No description available";
+            }
+        });
+
+        // tutup gambar (X)
+        if (closeBtn) {
+            closeBtn.onclick = function() {
+                modalBox.style.display = "none";
+            }
+        }
+
+        // tutup gambar anywhere
+        modalBox.onclick = function(event) {
+            if (event.target === modalBox) {
+                modalBox.style.display = "none";
+            }
+        }
+    </script>
+
+    <style>
+        /* Sifat scroll bagi website jadi smooth/lancar */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Ini sekadar teks panjang untuk bagi page ada scrollbar */
+        .content {
+            padding: 20px;
+            height: 2000px; 
+            background: linear-gradient(to bottom, #f3f4f6, #2563eb);
+        }
+
+        /* --- STYLE UNTUK BUTTON BACK TO TOP --- */
+        #btnBackToTop {
+            display: none;          /* Ghaibkan button pada mulanya */
+            position: fixed;        /* Gantungkan button atas skrin */
+            bottom: 20px;           /* Jarak 20px dari bawah */
+            right: 30px;            /* Jarak 30px dari kanan */
+            z-index: 99;            /* Pastikan button sentiasa di lapisan paling atas */
+            border: none;           
+            outline: none;          
+            background-color: #22c55e; /* Warna hijau (boleh tukar ikut tema) */
+            color: white;           
+            cursor: pointer;        
+            padding: 15px 20px;     
+            border-radius: 50px;    /* Buat bentuk bulat/oval */
+            font-size: 18px;        
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3); /* Kesan bayang */
+            transition: background-color 0.3s;
+        }
+
+        /* Kesan bila mouse lalu atas button */
+        #btnBackToTop:hover {
+            background-color: #16a34a; /* Hijau gelap sikit */
+        }
+    </style>
+</head>
+
+    <style>
+        /* Memastikan skrin scroll dengan lancar */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- STYLE BUTTON BACK TO TOP PASTEL --- */
+        #btnBackToTop {
+            display: none;            /* Sorok pada permulaan */
+            position: fixed;          /* Sentiasa terapung di skrin */
+            bottom: 30px;             /* Jarak dari bawah */
+            right: 30px;              /* Jarak dari kanan */
+            z-index: 99;              /* Berada di lapisan paling atas */
+            
+            /* Sizing & Shape */
+            width: 50px;              /* Lebar button seragam */
+            height: 50px;             /* Tinggi button seragam */
+            border-radius: 50%;       /* Jadikan bentuk bulat sempurna */
+            border: none;             /* Buang border hitam standard */
+            
+            /* GUNA SALAH SATU WARNA PASTEL DI BAWAH: */
+            background-color: #FFD1DC; /* 1. Pastel Pink (Latar Belakang) */
+            /* background-color: #E8F0E6; */ /* 2. Pastel Sage Green (Buka ulasan jika nak guna) */
+            /* background-color: #E6E6FA; */ /* 3. Pastel Lavender (Buka ulasan jika nak guna) */
+            
+            cursor: pointer;          
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08); /* Bayang yang sangat soft */
+            
+            /* Center-kan ikon SVG di dalam button */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            transition: all 0.3s ease; /* Efek transition yang smooth */
+        }
+
+        /* Efek hover (bila mouse lalu atas button) */
+        #btnBackToTop:hover {
+            transform: translateY(-5px); /* Button akan naik sikit ke atas */
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.12); /* Bayang jadi tebal sikit */
+            background-color: #FCAEBB; /* Warna pink pekat sikit masa hover */
+        }
+
+        /* --- BAHAGIAN INI DIUBAH UNTUK BESARKAN ARROW --- */
+        #btnBackToTop svg {
+            stroke: #7DAAA5; /* Warna hijau/turquoise pastel */
+            width: 30px;     /* Diubah dari 24px ke 30px */
+            height: 30px;    /* Diubah dari 24px ke 30px */
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="topFunction()" id="btnBackToTop" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+        </svg>
+    </button>
+
+    <script>
+        let mybutton = document.getElementById("btnBackToTop");
+
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                mybutton.style.display = "flex"; /* Guna 'flex' supaya ikon kekal di tengah */
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+</body>
+</html>
+
+</body>
+</html>
